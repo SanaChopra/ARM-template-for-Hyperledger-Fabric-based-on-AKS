@@ -29,7 +29,7 @@ echo "======== Started fabric-admin pod!!! =========="
 echo
 
 FABRIC_ADMIN_POD=$(kubectl get pods -l name=fabric-admin -ojsonpath={.items[0].metadata.name} --namespace hlf)
-kubectl exec ${FABRIC_ADMIN_POD} -- bash --namespace hlf -c "/var/hyperledger/consortiumScripts/byn2.sh ${theargs}"
+kubectl exec ${FABRIC_ADMIN_POD} --namespace hlf -- bash -c "/var/hyperledger/consortiumScripts/byn2.sh ${theargs}"
 kubectl delete pod ${FABRIC_ADMIN_POD} --namespace hlf &> $LOG_FILE
 res=$?
 verifyResult $res "Deletion of fabric-admin pod Failed"
