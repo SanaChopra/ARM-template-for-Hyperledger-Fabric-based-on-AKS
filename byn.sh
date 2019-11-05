@@ -11,7 +11,7 @@ verifyResult() {
   fi
 }
 
-hlfStatus=$(kubectl get configmap hlf-status -o jsonpath={.data.hlfStatus})
+hlfStatus=$(kubectl get configmap hlf-status -o jsonpath={.data.hlfStatus} --namespace hlf)
 if [ ! "$hlfStatus" == "Done" ]; then
   res=1
   verifyResult $res "HLF Organization is not setup yet. Can't run the script."
