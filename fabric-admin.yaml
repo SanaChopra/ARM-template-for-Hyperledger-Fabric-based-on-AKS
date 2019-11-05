@@ -4,6 +4,7 @@ metadata:
   name: fabric-admin
   labels:
      name: fabric-admin
+  namespace: hlf   
 spec:
       restartPolicy: Never
       volumes:
